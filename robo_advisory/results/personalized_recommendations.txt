@@ -1,0 +1,52 @@
+================================================================================
+RECOMENDACIONES PERSONALIZADAS - ROBO ADVISORY GENAI
+================================================================================
+
+CASO 1: Cliente con sentimiento positivo
+--------------------------------------------------------------------------------
+Cliente ID: 708082083
+Sentimiento: positive
+Recomendación: Sí
+
+Estimado cliente,
+
+1. **Análisis de la situación actual:** Con 45 años, un ingreso anual entre $60K y $80K, y 36 meses con el banco, usted mantiene un uso activo de su tarjeta con un límite de $12,000 y un ratio de utilización del 45%, lo que indica un uso moderado del crédito. Su balance rotativo de $1,500 refleja cierta dependencia del crédito, pero su historial y nivel de confianza (68.18%) junto con un NPS de 9 denotan una excelente relación con el banco y satisfacción en el servicio.
+
+2. **Recomendación específica:** Le sugerimos considerar una tarjeta de crédito premium con recompensas en efectivo y beneficios de viajes, como nuestra tarjeta Visa Infinite o Mastercard World Elite. Estas tarjetas se adaptan a clientes con su perfil financiero, ofreciendo límites más altos y ventajas exclusivas.
+
+3. **Beneficios clave:** 
+- Recompensas en efectivo en categorías frecuentes como supermercados y gasolina, alineadas con sus hábitos de gasto.
+- Acceso a salas VIP en aeropuertos y seguros de viaje, ideales para un cliente con estabilidad financiera y potencial interés en viajes.
+- Tasa de interés competitiva y programas de pago flexible para reducir el balance rotativo.
+- Incremento del límite de crédito para mejorar su ratio de utilización y potenciar su puntuación crediticia.
+
+4. **Siguiente acción sugerida:** Le invitamos a agendar una consulta personalizada con uno de nuestros asesores para evaluar esta opción y ajustar beneficios a sus necesidades específicas.
+
+Agradecemos su confianza y estamos comprometidos en brindarle la mejor experiencia financiera.
+
+Atentamente,  
+Su asesor bancario
+
+================================================================================
+
+CASO 2: Cliente con sentimiento negativo
+--------------------------------------------------------------------------------
+Cliente ID: 708082084
+Sentimiento: negative
+Recomendación: No
+
+Estimado/a cliente,
+
+1. **Análisis de situación actual:** Usted tiene un límite de crédito moderado ($5,000) con un balance rotativo de $2,200 y un ratio de utilización del 15%, lo cual es positivo para mantener un buen historial crediticio. Sin embargo, su sentimiento negativo y bajo NPS indican insatisfacción con los productos actuales o la experiencia con el banco. Además, la probabilidad de aceptación para una nueva tarjeta es nula según el modelo, probablemente debido a su nivel de ingresos y saldo actual.
+
+2. **Recomendación de producto:** En lugar de ofrecer una nueva tarjeta, sugerimos optimizar su tarjeta actual o considerar una tarjeta de crédito asegurada con beneficios básicos, que facilita el control del gasto y mejora el historial crediticio sin altos riesgos para usted ni para el banco.
+
+3. **Beneficios clave:** Estas tarjetas ayudarán a reducir el balance rotativo, evitar cargos por intereses elevados y mejorar su puntaje crediticio. Además, suelen incluir herramientas de control y alertas que pueden darle mayor tranquilidad y control financiero.
+
+4. **Siguiente acción:** Le recomendamos agendar una sesión personalizada con un asesor para revisar su situación financiera y explorar opciones de gestión de deuda y mejora de experiencia, incluyendo educación financiera y posibles ajustes en sus productos actuales.
+
+5. **Tono:** Entendemos sus preocupaciones y estamos comprometidos a brindarle soluciones prácticas que mejoren su experiencia y bienestar financiero. Estamos aquí para apoyarla en cada paso.
+
+Quedamos atentos a su contacto para brindarle la mejor asesoría.
+
+================================================================================

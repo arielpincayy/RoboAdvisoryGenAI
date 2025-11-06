@@ -1,0 +1,3 @@
+customer_id,sentiment,sentiment_confidence,recommendation,recommendation_probability,timestamp
+708082083,positive,0.6817512756124948,Sí,0.9953895807266235,2025-10-21T16:21:19.726538
+708082084,negative,0.9475860576816969,No,8.106776424158041e-24,2025-10-21T16:21:23.880750
