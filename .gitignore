@@ -1,0 +1,6 @@
+.venv
+glove.6B.100d.txt
+models/*
+__pycache__/
+*.pyc
+pipelines/*
