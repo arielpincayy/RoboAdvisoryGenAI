@@ -17,7 +17,7 @@ if not os.path.exists('data_transformers.py'):
     sys.exit(1)
 
 # Importar desde el módulo externo
-from data_transformers import DropColumns, DynamicPreprocessor
+from data_transformers import DropColumns, DynamicPreprocessor, DateFeatureGenerator
 
 # --- Directorios ---
 PATH_PIPELINE = 'pipelines'
@@ -31,7 +31,7 @@ print("="*60)
 print("🚀 CREANDO PIPELINE DE DATOS DE CLIENTES")
 print("="*60)
 
-CSV_PATH = os.path.join(PATH_DATA, 'BankChurners.csv')
+CSV_PATH = os.path.join(PATH_DATA, 'BankChurners_merged.csv')
 if not os.path.exists(CSV_PATH):
     print(f"❌ ERROR: No se encuentra {CSV_PATH}")
     print("   Asegúrate de que el archivo CSV exista en data/")
@@ -51,8 +51,10 @@ print(f"   • Filas después de dropna: {len(df)}")
 print("\n🔧 Creando pipeline...")
 print(f"   • DropColumns importado desde: {DropColumns.__module__}")
 print(f"   • DynamicPreprocessor importado desde: {DynamicPreprocessor.__module__}")
+print(f"   • DateFeatureGenerator importado desde: {DateFeatureGenerator.__module__}")
 
 data_pipeline = Pipeline([
+    ('date_feature', DateFeatureGenerator()),
     ('drop_cols', DropColumns()),
     ('preprocessor', DynamicPreprocessor())
 ])
@@ -81,8 +83,13 @@ print("\n🔍 Verificando carga del pipeline...")
 loaded_pipeline = joblib.load(PIPELINE_OUTPUT)
 
 # Verificar módulos
+date_feature = loaded_pipeline.named_steps['date_feature']
 drop_cols = loaded_pipeline.named_steps['drop_cols']
 preprocessor = loaded_pipeline.named_steps['preprocessor']
+
+print(f"   • DateFeatureGenerator:")
+print(f"     - Clase: {date_feature.__class__.__name__}")
+print(f"     - Módulo: {date_feature.__class__.__module__}")
 
 print(f"   • DropColumns:")
 print(f"     - Clase: {drop_cols.__class__.__name__}")
@@ -93,7 +100,8 @@ print(f"     - Clase: {preprocessor.__class__.__name__}")
 print(f"     - Módulo: {preprocessor.__class__.__module__}")
 
 # Verificar que están correctamente vinculados
-if (drop_cols.__class__.__module__ == 'data_transformers' and 
+if (date_feature.__class__.__module__ == 'data_transformers' and
+    drop_cols.__class__.__module__ == 'data_transformers' and 
     preprocessor.__class__.__module__ == 'data_transformers'):
     print("\n   ✅ Pipeline correctamente vinculado a data_transformers.py")
 else:

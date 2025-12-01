@@ -9,6 +9,34 @@ from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.preprocessing import MinMaxScaler, OneHotEncoder
 
 
+
+class DateFeatureGenerator(BaseEstimator, TransformerMixin):
+    """
+    Genera la columna 'DaysSinceLast' basada en la diferencia de fechas.
+    Debe ejecutarse ANTES de DropColumns.
+    """
+    def fit(self, X, y=None):
+        return self
+
+    def transform(self, X):
+        # Creamos una copia para no afectar el dataframe original fuera del pipeline
+        X = X.copy()
+        
+        # Verificamos que las columnas existan antes de operar
+        if 'TransactionDate' in X.columns and 'PreviousTransactionDate' in X.columns:
+            # Asegurar tipo datetime
+            X['TransactionDate'] = pd.to_datetime(X['TransactionDate'])
+            X['PreviousTransactionDate'] = pd.to_datetime(X['PreviousTransactionDate'])
+            
+            # Calcular diferencia
+            # Nota: Según tu lógica es Previous - Transaction
+            X['TimeSinceLastTransaction'] = X['PreviousTransactionDate'] - X['TransactionDate']
+            
+            # Convertir a días (segundos totales / 86400)
+            X['DaysSinceLast'] = X['TimeSinceLastTransaction'].dt.total_seconds() / 86400
+            
+        return X
+
 class DropColumns(BaseEstimator, TransformerMixin):
     """
     Elimina columnas innecesarias del dataset de clientes.
@@ -17,7 +45,9 @@ class DropColumns(BaseEstimator, TransformerMixin):
         self.columns = [
             'CustomerID', 'Id Complain', 'Id Interaction', 'date_received', 
             'Survey date', 'Twitter', 'NPS', 'product', 'sub_product', 
-            'issue', 'sub_issue', 'Gender'
+            'issue', 'sub_issue', 'Gender', 'TransactionID', 'AccountID', 
+            'DeviceID', 'IP Address', 'MerchantID', "TransactionDate", 
+            "PreviousTransactionDate", 'TimeSinceLastTransaction'
         ]
     
     def fit(self, X, y=None):
