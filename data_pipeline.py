@@ -1,13 +1,8 @@
-#!/usr/bin/env python3
-"""
-Script para crear el pipeline de preprocesamiento de datos de clientes.
-DEBE ejecutarse FUERA del Docker, en tu máquina local.
-"""
-
 import os
 import sys
 import pandas as pd
 from sklearn.pipeline import Pipeline
+from data_transformers import DropColumns, DynamicPreprocessor, DateFeatureGenerator
 import joblib
 
 # ⚠️ CRÍTICO: Verificar que data_transformers.py existe
@@ -15,9 +10,6 @@ if not os.path.exists('data_transformers.py'):
     print("❌ ERROR: No se encuentra data_transformers.py en el directorio actual")
     print("   Asegúrate de que data_transformers.py esté en el mismo directorio")
     sys.exit(1)
-
-# Importar desde el módulo externo
-from data_transformers import DropColumns, DynamicPreprocessor, DateFeatureGenerator
 
 # --- Directorios ---
 PATH_PIPELINE = 'pipelines'
@@ -31,7 +23,7 @@ print("="*60)
 print("🚀 CREANDO PIPELINE DE DATOS DE CLIENTES")
 print("="*60)
 
-CSV_PATH = os.path.join(PATH_DATA, 'BankChurners_merged.csv')
+CSV_PATH = os.path.join(PATH_DATA, 'BankChurners_merged_for_pipeline.csv')
 if not os.path.exists(CSV_PATH):
     print(f"❌ ERROR: No se encuentra {CSV_PATH}")
     print("   Asegúrate de que el archivo CSV exista en data/")

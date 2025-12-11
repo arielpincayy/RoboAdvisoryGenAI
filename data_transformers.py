@@ -42,13 +42,11 @@ class DropColumns(BaseEstimator, TransformerMixin):
     Elimina columnas innecesarias del dataset de clientes.
     """
     def __init__(self):
-        self.columns = [
-            'CustomerID', 'Id Complain', 'Id Interaction', 'date_received', 
-            'Survey date', 'Twitter', 'NPS', 'product', 'sub_product', 
-            'issue', 'sub_issue', 'Gender', 'TransactionID', 'AccountID', 
-            'DeviceID', 'IP Address', 'MerchantID', "TransactionDate", 
-            "PreviousTransactionDate", 'TimeSinceLastTransaction'
-        ]
+        self.columns = ['CustomerID', 'Id Complain', 'Id Interaction', 'date_received', 
+                        'Survey date', 'Twitter', 'NPS', 'product', 'sub_product', 'issue', 
+                        'sub_issue', 'Gender', 'TransactionID', 'AccountID', 'DeviceID', 
+                        'IP Address', 'MerchantID', "TransactionDate", "PreviousTransactionDate", 
+                        'TimeSinceLastTransaction', 'TransactionDuration', 'LoginAttempts']
     
     def fit(self, X, y=None):
         return self
